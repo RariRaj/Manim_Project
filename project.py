@@ -119,8 +119,8 @@ class GraphSLE2(Scene):
         self.play(Write(eq1_display_x))
         self.wait(1)
         self.play(Write(eq1_sub_x))
-        self.play(y_symbol2.animate.shift(UP * 0.2),eq1_x[25:27].animate.shift(UP * 0.2),color=WHITE)
-        self.play(y_symbol2.animate.shift(DOWN * 0.2),eq1_x[25:27].animate.shift(DOWN * 0.2))
+        self.play(y_symbol2.animate.shift(UP * 0.2),eq1_x[25:28].animate.shift(UP * 0.2),color=WHITE)
+        self.play(y_symbol2.animate.shift(DOWN * 0.2),eq1_x[25:28].animate.shift(DOWN * 0.2))
         self.wait(1)
         self.play(Write(eq1_simplified_x ))
         self.play(Write(ul_x3),run_time=0.5)
@@ -130,7 +130,7 @@ class GraphSLE2(Scene):
         
         self.play(ReplacementTransform(ul_x3,ul_x4),run_time=1)
         self.play(Write(eq1_solution_x))
-        self.wait(2)
+        self.wait(1)
 
         
 
@@ -138,9 +138,7 @@ class GraphSLE2(Scene):
         eq1_x_intercept = Text("x-intercept = (4,0)", color=GREEN,t2s={"x-intercept = (4,0)": ITALIC}).scale(0.8)
         eq1_x_intercept.next_to(eq1_solution_x, DOWN)
         self.play(Write(eq1_x_intercept))
-        
-
-        self.wait(2)
+        self.wait(1)
 
         eq1_x_group =VGroup(eq1_display_x,eq1_sub_x,eq1_simplified_x,eq1_solution_x,ul_x3,ul_x4)
         self.play(FadeOut(eq1_x_group))
@@ -168,21 +166,19 @@ class GraphSLE2(Scene):
         y_symbol2 = eq1_sub_y.get_part_by_tex("y")
 
 
-        # Step 3: Simplify to 3x = 12
+        # Step 3: Simplify to 2y = 12
         eq1_simplified_y = MathTex("2y = 12", tex_to_color_map={"y": GREEN}).scale(0.8)
         eq1_simplified_y .next_to(eq1_sub_y, DOWN)
 
         y_symbol3 = eq1_simplified_y.get_part_by_tex("y")
         ul_y3=Underline(eq1_simplified_y[0:2],color=RED)
 
-        # Step 4: Solve for x
+        # Step 4: Solve for y
         eq1_solution_y = MathTex("y = \\frac{12}{2} = 6", tex_to_color_map={"y": GREEN}).scale(0.8)
         eq1_solution_y.next_to(eq1_simplified_y , DOWN)
         ul_y4 = Underline(eq1_solution_y[0][0],color=RED)
 
-        #animate x,y,0 up and down
-
-
+        
         # Display the steps one by one
         self.play(Write(eq1_display_y))
         self.wait(1)
@@ -198,20 +194,13 @@ class GraphSLE2(Scene):
         
         self.play(ReplacementTransform(ul_y3,ul_y4),run_time=1)
         self.play(Write(eq1_solution_y))
-        self.wait(2)
+        self.wait(1)
 
-        # # Highlight and apply effect to the 'x'
-        # eq1_x_in_solution = eq1_solution_x[0][0]  # The 'x' in the solution
-        # self.play(Indicate(eq1_x_in_solution, color=GREEN))
-        # self.play(ApplyWave(eq1_x_in_solution))
-
-        # Highlight the x-intercept
+        # Highlight the y-intercept
         eq1_y_intercept = Text("y-intercept = (0,6)", color=GREEN,t2s={"y-intercept = (0,6)": ITALIC}).scale(0.8)
         eq1_y_intercept.next_to(eq1_solution_y, DOWN)
         self.play(Write(eq1_y_intercept))
-        
-
-        self.wait(2)
+        self.wait(1)
 
         eq1_y_group =VGroup(eq1_display_y,eq1_sub_y,eq1_simplified_y,eq1_solution_y,ul_y3,ul_y4)
         self.play(FadeOut(eq1_y_group))
@@ -246,7 +235,7 @@ class GraphSLE2(Scene):
         eq2_solution_x.next_to(eq2_sub_x , DOWN)
         ul_x4 = Underline(eq2_solution_x[0][0],color=RED)
 
-        #animate x,y,0 up and down
+        
 
 
         # Display the steps one by one
@@ -256,25 +245,21 @@ class GraphSLE2(Scene):
         self.play(y_symbol2.animate.shift(UP * 0.2),eq2_x[25:28].animate.shift(UP * 0.2),color=WHITE)
         self.play(y_symbol2.animate.shift(DOWN * 0.2),eq2_x[25:28].animate.shift(DOWN * 0.2))
         self.wait(1)
-        # self.play(Write(eq2_simplified_x ))
-        # self.play(Write(ul_x3),run_time=0.5)
-        self.play(x_symbol2.animate.shift(UP * 0.3))
-        self.play(x_symbol2.animate.shift(DOWN * 0.3))
+        # self.play(x_symbol2.animate.shift(UP * 0.3))
+        # self.play(x_symbol2.animate.shift(DOWN * 0.3))
         self.wait(1)
         
         
         self.play(Write(eq2_solution_x))
         self.play(Write(ul_x4))
-        self.wait(2)
+        self.wait(1)
 
 
         # Highlight the x-intercept
         eq2_x_intercept = Text("x-intercept = (-4,0)", color = BLUE,t2s={"x-intercept = (-4,0)": ITALIC}).scale(0.8)
         eq2_x_intercept.next_to(eq2_solution_x, DOWN)
         self.play(Write(eq2_x_intercept))
-        
-
-        self.wait(2)
+        self.wait(1)
 
         eq2_x_group =VGroup(eq2_display_x,eq2_sub_x,eq2_solution_x,ul_x4)
         self.play(FadeOut(eq2_x_group))
@@ -301,13 +286,6 @@ class GraphSLE2(Scene):
         x_symbol2 = eq2_sub_y.get_part_by_tex("0")
         y_symbol2 = eq2_sub_y.get_part_by_tex("y")
 
-    
-
-        # # Display the symbol and the cut line
-        # self.play(Write(eq2_sub_y))
-        # self.play(Create(cut_line))
-
-
         # Step 3: Simplify to 2y = 4
         eq2_simplified_y = MathTex("2y = 4", tex_to_color_map={"y": BLUE}).scale(0.8)
         eq2_simplified_y.next_to(eq2_sub_y, DOWN)
@@ -315,7 +293,7 @@ class GraphSLE2(Scene):
         y_symbol3 = eq2_simplified_y.get_part_by_tex("y")
         ul_y3=Underline(eq2_simplified_y[0:2],color=RED)
 
-        # Step 4: Solve for x
+        # Step 4: Solve for y
         eq2_solution_y = MathTex("y = \\frac{4}{2} = 2", tex_to_color_map={"y": BLUE}).scale(0.8)
         eq2_solution_y.next_to(eq2_simplified_y , DOWN)
         ul_y4 = Underline(eq2_solution_y[0][0],color=RED)
@@ -338,15 +316,13 @@ class GraphSLE2(Scene):
         
         self.play(ReplacementTransform(ul_y3,ul_y4),run_time=1)
         self.play(Write(eq2_solution_y))
-        self.wait(2)
+        self.wait(1)
 
-        # Highlight the x-intercept
+        # Highlight the y-intercept
         eq2_y_intercept = Text("y-intercept = (0,2)", color = BLUE,t2s={"y-intercept = (0,2)": ITALIC}).scale(0.8)
         eq2_y_intercept.next_to(eq2_solution_y, DOWN)
         self.play(Write(eq2_y_intercept))
-        
-
-        self.wait(2)
+        self.wait(1)
 
         eq2_y_group =VGroup(eq2_display_y,eq2_sub_y,eq2_simplified_y,eq2_solution_y,ul_y3,ul_y4)
         self.play(FadeOut(eq2_y_group))
@@ -360,87 +336,35 @@ class GraphSLE2(Scene):
         self.play(eq1_y_intercept.animate.next_to(eq1_x_intercept,DOWN))
         self.play(eq2_x_intercept.animate.next_to(group2,DOWN))
         self.play(eq2_y_intercept.animate.next_to(eq2_x_intercept,DOWN),ShrinkToCenter(line))
-        self.wait()
+        self.wait(1)
 
         step3=Text("Plot points on the graph and draw the lines").scale(0.5)
         step3.shift(ORIGIN)
         self.play(step3.animate.to_edge(DOWN))
 
-        # #Create the axes
-        # axes = Axes(
-            
-        #     x_range=[-5, 5],  # x-axis from -1 to 10
-        #     y_range=[-8, 8], # x-axis from -1 to 10
-            
-        #     axis_config={
-        #         "stroke_color": GREY_A,
-        #         "stroke_width": 2,
-        #     },
-            
-        #     y_axis_config={
-        #         "include_tip": True,
-        #     }
-        # )
-
-        # axes.set_height(12)
-        # axes.set_width(12)
-
-        # # Add coordinate labels
-        # axes.add_coordinates(
-        #      font_size=20,
-        #     num_decimal_places=0,
-        # )
-
-
-        #  # Add labels for axes
-        # labels = axes.get_axis_labels(x_label="x", y_label="y")
-
-        # #Equation 1
-        # # Create a dot for the x-intercept (4, 0) and label it
-        # x1_intercept = Dot(axes.coords_to_point(4, 0), color=RED)
-        # x1_label = MathTex("(4, 0)").next_to(x1_intercept, DOWN)
-
-        # # Create a dot for the y-intercept (0, 6) and label it
-        # y1_intercept = Dot(axes.coords_to_point(0, 6), color=PINK)
-        # y1_label = MathTex("(0, 6)").next_to(y1_intercept, LEFT)
-
-        # # Create a graph of the line y = -1.5x + 6 for visualization
-        # line_graph = axes.plot(lambda x: -1.5 * x + 6, color=GREEN,x_range=[0, 10])
-
-        # # Display everything on the screen
-        # self.play(Create(axes), Write(labels))
-        # self.play(FadeIn(x1_intercept), Write(x1_label),run_time=1)
-        # self.play(FadeIn(y1_intercept), Write(y1_label),run_time=1)
-        # self.play(Create(line_graph),run_time=4)
         
-
-        # self.wait(2)
-
-        # #Equation 2
-        # # Create a dot for the x-intercept (-4, 0) and label it
-        # x2_intercept = Dot(axes.coords_to_point(-4, 0), color=TEAL)
-        # x2_label = MathTex("(4, 0)",tex_to_color_map={"(4, 0)":TEAL}).next_to(x2_intercept, DOWN)
-
-        # # Create a dot for the y-intercept (0, 2) and label it
-        # y2_intercept = Dot(axes.coords_to_point(0, 2), color=PURPLE)
-        # y2_label = MathTex("(0, 6)").next_to(y2_intercept, LEFT)
-
-        # # Create a graph of the line y = -1.5x + 6 for visualization
-        # line_graph = axes.plot(lambda x: (x + 4) / 2, color=BLUE,x_range=[0, 6])
-
-        # # Display everything on the screen
-        
-        # self.play(FadeIn(x2_intercept), Write(x2_label),run_time=1)
-        # self.play(FadeIn(y2_intercept), Write(y2_label),run_time=1)
-        # self.play(Create(line_graph),run_time=4)
-        
-
-        # self.wait(2)
         # Create Axes
         axes = Axes(
-            x_range=[-6, 6, 1],  # x-axis from -6 to 6
-            y_range=[-7, 7, 1],  # y-axis from -6 to 6
-            axis_config={"color":GRAY}
+            x_range=[-6, 6],  # x-axis from -6 to 6
+            y_range=[-8, 8],  # y-axis from -6 to 6
+            
+            axis_config={
+                "stroke_color": GREY_A,
+                "stroke_width": 2,
+                
+            },
+            
+            y_axis_config={
+                "include_tip": True,
+            }
+        )
+        axes.set_height(12)
+        axes.set_width(12)
+
+        # Add coordinate labels
+        axes.add_coordinates(
+             font_size=20,
+            num_decimal_places=1,
         )
 
         # Add labels for the axes
@@ -466,19 +390,68 @@ class GraphSLE2(Scene):
         x_label_eq2 = MathTex("(-4, 0)").next_to(x_intercept_eq2, DOWN)
         y_label_eq2 = MathTex("(0, 2)").next_to(y_intercept_eq2, LEFT)
 
+
+        # Mark the intercepts for both equations (optional)
+        # Mark the solution of both equations (2, 3)
+        solution = Dot(axes.coords_to_point(2, 3), color=ORANGE)
+        solution_label = MathTex(r"(2, 3)").next_to(solution, UP)
+
+
+        # Create dotted lines from the solution point to the x-axis and y-axis
+        x_dotted_line = DashedLine(
+            start=solution, 
+            end=axes.c2p(2, 0),
+            color=YELLOW
+        )
+        y_dotted_line = DashedLine(
+            start=solution, 
+            end=axes.c2p(0, 3),
+            color=YELLOW
+        )
+
+        intercept_labels=VGroup(labels,x_label_eq1,y_label_eq1,x_label_eq2,y_label_eq2,step3,group1,group2)
+        shrink_params=VGroup(axes,x_intercept_eq1,y_intercept_eq1,x_intercept_eq2,y_intercept_eq2,eq1_x_intercept,eq1_y_intercept,eq2_x_intercept,eq2_y_intercept,eq1_graph,eq2_graph,solution,solution_label,x_dotted_line,y_dotted_line)
+
         # Display everything on the screen
         self.play(Create(axes), Write(labels))
 
         # Display Equation 1 and its intercepts
-        self.play(FadeIn(x_intercept_eq1), Write(x_label_eq1),run_time=1)
-        self.play(FadeIn(y_intercept_eq1), Write(y_label_eq1),run_time=1)
+        self.play(FadeIn(x_intercept_eq1), ReplacementTransform(eq1_x_intercept,x_label_eq1),run_time=1)
+        self.play(Indicate(x_label_eq1,color=GOLD_E),Indicate(x_intercept_eq1))
+        self.play(FadeIn(y_intercept_eq1), ReplacementTransform(eq1_y_intercept,y_label_eq1),run_time=1)
+        self.play(Indicate(y_label_eq1,color=GOLD_E),Indicate(y_intercept_eq1))
         self.play(Create(eq1_graph),run_time=2)
 
         # Display Equation 2 and its intercepts
-        self.play(FadeIn(x_intercept_eq2), Write(x_label_eq2),run_time=1)
-        self.play(FadeIn(y_intercept_eq2), Write(y_label_eq2),run_time=1)
+        self.play(FadeIn(x_intercept_eq2), ReplacementTransform(eq2_x_intercept,x_label_eq2),run_time=1)
+        self.play(Indicate(x_label_eq2,color=GOLD_A),Indicate(x_intercept_eq2))
+        self.play(FadeIn(y_intercept_eq2), ReplacementTransform(eq2_y_intercept,y_label_eq2),run_time=1)
+        self.play(Indicate(y_label_eq2,color=GOLD_A),Indicate(y_intercept_eq2))
         self.play(Create(eq2_graph),run_time=2)
+
+        # Mark the solution point (2, 3)
+        self.play(Create(x_dotted_line), Create(y_dotted_line))
+        self.play(Indicate(solution),Write(solution_label))
+        self.play(FadeOut(intercept_labels))
         self.wait(2)
+        self.play(ShrinkToCenter(shrink_params))
+
+        #Display result
+        result=Text("The intersection (2,3) is the solution to the system of equation",t2c={"(2,3)":YELLOW,"solution to the system of equation":GOLD}).scale(0.5)
+        self.play(Write(result))
+        self.play(ShowPassingFlashWithThinningStrokeWidth(result),run_time=1)
+        self.wait(2)
+
+        #Display Thank you message
+        tk=Text("Thank You!!!",color=BLUE)
+        name=Text("by Rari",color=TEAL)
+        name.next_to(tk,DR)
+        self.play(FadeOut(result))
+        self.play(FadeIn(tk))
+        self.play(Write(name),run_time=1)
+        self.wait(1)
+        
+        
 
 
 
